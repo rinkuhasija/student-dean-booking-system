@@ -6,6 +6,10 @@ const connectDB = require("./config/db")
 
 //import routes
 const studentAuth = require("./routes/studentAuth");
+const deanAuth = require("./routes/deanAuth");
+const sessions = require("./routes/availableSessions");
+const bookSession = require("./routes/bookSession");
+const viewPendingSession = require("./routes/viewPendingSession");
 
 // Create Express app
 const app = express();
@@ -24,6 +28,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // student routes
 app.use('/api/v1/auth', studentAuth);
 
+//dean routes
+app.use('/api/v1/auth', deanAuth);
+
+//available sessions
+app.use('/api/v1/sessions', sessions);
+
+//book session
+app.use('/api/v1', bookSession);
+
+//view pending session
+app.use('/api/v1', viewPendingSession);
 
 app.get("/", async (req, res) => {
     // const token = uuid.v4();

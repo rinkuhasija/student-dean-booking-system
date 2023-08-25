@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 require('dotenv').config(); //  .env file
 const Dean = require("../models/dean.model");
+const uuid = require('uuid');
 
 // Dean Register
 router.post('/register/dean', async (req, res) => {
@@ -62,3 +63,5 @@ router.post('/login/dean', async (req, res) => {
         res.status(400).json({ error: error.message });
     }
 });
+
+module.exports = router;
