@@ -11,7 +11,7 @@ const requireAuthStudent = async (req, res, next) => {
     try {
         let dbToken = await Student.findOne({ token: token });
         if (!dbToken) {
-            console.log("not student");
+            // console.log("not student");
             return res.status(401).json({ error: 'Unauthorized - token error' });
         }
 

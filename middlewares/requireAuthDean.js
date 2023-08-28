@@ -11,7 +11,7 @@ const requireAuthDean = async (req, res, next) => {
         let dbToken = await Dean.findOne({ token: token });
 
         if (!dbToken) {
-            console.log("not dean");
+            // console.log("not dean");
             return res.status(401).json({ error: 'Unauthorized - token error' });
         }
 
